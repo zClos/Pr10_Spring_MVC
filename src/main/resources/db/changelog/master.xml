@@ -1,0 +1,9 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="db/changelog/release/1.1_-_Table_Department_creation.xml"/>
+    <include file="db/changelog/release/1.2_-_Table_Employee_creation.xml"/>
+    <include file="db/changelog/release/1.3_-_Fill_tables.xml"/>
+</databaseChangeLog>

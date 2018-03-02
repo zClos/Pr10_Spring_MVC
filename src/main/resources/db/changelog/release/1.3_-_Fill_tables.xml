@@ -1,0 +1,54 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="3" author="Aleksandr Alkhimyonok">
+        <insert tableName="department" schemaName="company">
+            <column name="name" value="Sale" />
+        </insert>
+        <insert tableName="department" schemaName="company">
+            <column name="name" value="Economic"/>
+        </insert>
+        <insert tableName="department" schemaName="company">
+            <column name="name" value="Management"/>
+        </insert>
+        <rollback>
+            <delete tableName="department">
+                <where>name IN (Sale, Economic, Management)</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="4" author="Aleksandr Alkhimyonok">
+        <insert tableName="employee" schemaName="company">
+            <column name="first_name" value="Вася" />
+            <column name="last_name" value="Куклочев" />
+            <column name="position" value="Кассир" />
+            <column name="department_id" value="1" />
+        </insert>
+        <insert tableName="employee" schemaName="company">
+            <column name="first_name" value="Женя" />
+            <column name="last_name" value="Пушкин" />
+            <column name="position" value="Экономист" />
+            <column name="department_id" value="2" />
+        </insert>
+        <insert tableName="employee" schemaName="company">
+            <column name="first_name" value="Алеся" />
+            <column name="last_name" value="Кудесница" />
+            <column name="position" value="Менеджер" />
+            <column name="department_id" value="3" />
+        </insert>
+        <insert tableName="employee" schemaName="company">
+            <column name="first_name" value="Раиса" />
+            <column name="last_name" value="Верник" />
+            <column name="position" value="Старший менеджер" />
+            <column name="department_id" value="3" />
+        </insert>
+        <rollback>
+            <delete tableName="employee">
+                <where>first_name IN ('Вася', 'Женя', 'Алеся', 'Раиса')</where>
+            </delete>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
